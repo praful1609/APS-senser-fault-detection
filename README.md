@@ -13,3 +13,7 @@ pip install -r requirements.txt
 ```bash
 python main.py
 ```
+
+'''bash
+-e. use for to run setup.py file as library
+'''
