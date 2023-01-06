@@ -6,6 +6,10 @@ from dataclasses import dataclass
 
 #Provide the mongodb localhost url to connect python to mongdb.
 
-
+@dataclass
 class EnvironmentVariable:
-client = pymongo.MongoClient("mongodb://localhost:27017")
+    mongo_db_url : str = os.getenv(MONGO_DB_URL)
+
+
+env_var = EnvironmentVariable()
+mongo_client = pymongo.MongoClient(env_var.mongo_db_url)   

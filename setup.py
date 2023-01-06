@@ -3,7 +3,8 @@ from typing import List
 
 #WE are trying to run requirement.txt file line by line
 REQUIREMENT_FILE_NAME = "requirements.txt"
-HYPHEN_E_DOT = "-e ."
+HYPHEN_E_DOT = "-e ." #-e . (-e) means editable installation  and (.) mean current directory
+                      # hyphen -e . its not a library it is use to trigger our code as library
 
 def get_requirements()->List[str]:  # the -> in this line represent thr=e type of the return
     with open (REQUIREMENT_FILE_NAME) as requirement_file:
@@ -23,7 +24,10 @@ setup(
     version = "0.0.1",
     author = "praful",
     author_email = "pbhojane1609@gmail.com",
+
+    #file or folder with __init__.py file init this function will assumed that particular file or function as python packages
     packages = find_packages(),
+
     install_requires = get_requirements(),#it is asking us which libraries we are requires formproject
 
 )
