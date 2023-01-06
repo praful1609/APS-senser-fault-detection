@@ -1,5 +1,7 @@
 #In this file we are saving all Input of each stage
-import os 
+import os ,sys
+from sensor.exception import SensorException
+from datetime import datetime
 
 FILE_NAME = "sensor.csv"
 TRAIN_FILE_NAME = "train.csv"
@@ -8,8 +10,11 @@ TEST_FILE_NAME = "test.csv"
 class TrainingPipelineConfig:
 
     def __init__(self):
-        #we created artifact folder in current dirwctory for output
-        self.artifact_dir = os.path.join(os.getcwd(), "artifact", f"{datetime.now().strftime('%m%d%Y__%H%M%S')}")
+        try:
+            #we created artifact folder in current directory for output
+            self.artifact_dir = os.path.join(os.getcwd(), "artifact", f"{datetime.now().strftime('%m%d%Y__%H%M%S')}")
+        except Exception as e:
+            print(e)
 
 
 
@@ -21,19 +26,20 @@ class DataIngetionConfig:
         try:
             self.database_name = "aps"
             self.collection_name = "sensor"
-            self.data_ingetion_dir = os.path.join(training_pipeline_config.artifact_dir, "data_ingetion")
-            self.feature_store_dir = os.path.join(self.data_ingestion_dir, "feature_store")
-            self.train_file_name = os.path.join(self.data_ingetion_dir, "dataset", TRAIN_FILE_NAME)
-            self.test_file_name = os.path.join(self.data_ingetion_dir, "dataset", TEST_FILE_NAME)
+            self.data_ingestion_dir = os.path.join(training_pipeline_config.artifact_dir, "data_ingetion")
+            self.feature_store_dir = os.path.join(self.data_ingestion_dir, "feature_store", FILE_NAME)
+            self.train_file_name = os.path.join(self.data_ingestion_dir, "dataset", TRAIN_FILE_NAME)
+            self.test_file_name = os.path.join(self.data_ingestion_dir, "dataset", TEST_FILE_NAME)
+            self.test_size = 0.2
         except Exception as e:
             raise SensorException(e, sys)
             
         
 
 
-    def to_dict() ->dict:
+    def to_dict(self,) ->dict:
         try:
-            pass
+            return self.__dict__
         except Exception as e:
             raise SensorException(e,sys)
 
