@@ -1,3 +1,4 @@
+#In this file we are saving all Input of each stage
 import os 
 
 FILE_NAME = "sensor.csv"

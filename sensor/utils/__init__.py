@@ -5,25 +5,24 @@ from sensor.logger import logging
 from sensor.exception import SensorException
 
 
-def get_collection_as_dataframe(DATABASE_NAME:str, COLLECTION_NAME:str) -> pd.DataFrame:
+def get_collection_as_dataframe(database_name:str,collection_name:str)->pd.DataFrame:
     """
     Description: This function return collection as dataframe
-
-    DATABASE_NAME = DATABASE_NAME
-    COLLECTION_NAME = COLLECTION_NAME
-    ==========================================================
-    return Pandas dataframe of collection
+    =========================================================
+    Params:
+    database_name: database name
+    collection_name: collection name
+    =========================================================
+    return Pandas dataframe of a collection
     """
-    try: 
-        logging.info(f"reading dataframe from database {DATABASE_NAME} and collection {COLLECTION_NAME}")
-        df = pd.DataFrame(list( mongo_client[DATABASE_NAME][COLLECTION_NAME].find()))
-        logging.info(f"found columns {df.columns}")
-
-        #  there will be one unneccessary column will get added called '_id' by mongodb so we need to drop it
-        logging.info("droping column '_id' ")
+    try:
+        logging.info(f"Reading data from database: {database_name} and collection: {collection_name}")
+        df = pd.DataFrame(list(mongo_client[database_name][collection_name].find()))
+        logging.info(f"Found columns: {df.columns}")
         if "_id" in df.columns:
-            df = df.drop("_id", axis = 1)
-        logging.info(f"Rows and columns in df: {df.shape}")
-
+            logging.info(f"Dropping column: _id ")
+            df = df.drop("_id",axis=1)
+        logging.info(f"Row and columns in df: {df.shape}")
+        return df
     except Exception as e:
         raise SensorException(e, sys)

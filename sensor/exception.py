@@ -9,7 +9,7 @@ def error_message_detail(error, error_detail: sys):
     return error_message
 
 
-#We have inherit Exception class if we're creating out own exception class
+#We have inherit Exception class if we're creating our own exception class
 class SensorException(Exception):
 
     def __init__(self, error_message, error_detail:sys):
