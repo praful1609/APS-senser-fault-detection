@@ -19,6 +19,10 @@ class DataIngestion:
             raise SensorException(e, sys)
 
     def initiate_data_ingestion(self)->artifact_entity.DataIngestionArtifact:
+        """
+        Description = This will return DataIngestionArttifact
+        =====================================================
+        """
         try:
             logging.info(f"Exporting collection data as pandas dataframe")
             #Exporting collection data as pandas dataframe

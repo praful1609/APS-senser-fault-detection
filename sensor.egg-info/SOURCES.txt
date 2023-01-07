@@ -9,7 +9,7 @@ sensor.egg-info/SOURCES.txt
 sensor.egg-info/dependency_links.txt
 sensor.egg-info/requires.txt
 sensor.egg-info/top_level.txt
-sensor/components/DataIngetion.py
+sensor/components/DataIngestion.py
 sensor/components/DataTransformation.py
 sensor/components/DataValidation.py
 sensor/components/ModelEvalution.py
