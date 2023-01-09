@@ -1,0 +1,59 @@
+[33mcommit 25028da6541dc3a324abdff2b9b18a499f134ebd[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: praful1609 <pbhojane1609@gmail.com>
+Date:   Sat Jan 7 14:11:55 2023 +0530
+
+    data ingestion completed
+
+[33mcommit cf266b638129fa653097137d385f0d55fdd38de9[m
+Author: praful1609 <pbhojane1609@gmail.com>
+Date:   Fri Jan 6 23:49:09 2023 +0530
+
+    updated
+
+[33mcommit 6e21a2b79e4df738b22a4615c9cf0f894af98cbf[m
+Author: praful1609 <pbhojane1609@gmail.com>
+Date:   Fri Jan 6 22:22:24 2023 +0530
+
+    updated
+
+[33mcommit bcfe5fbee1f5554ef7f2daa50629fed683e4f7f9[m
+Author: praful1609 <pbhojane1609@gmail.com>
+Date:   Fri Jan 6 09:55:10 2023 +0530
+
+    updated
+
+[33mcommit 6eac3cbc15b2eb4ac8621356e6fcb67c0fe50a3b[m
+Author: praful1609 <pbhojane1609@gmail.com>
+Date:   Mon Jan 2 22:45:26 2023 +0530
+
+    updated
+
+[33mcommit a20387dc5bc0d921454a3c2f7336c9f4c4353142[m
+Author: praful1609 <pbhojane1609@gmail.com>
+Date:   Mon Jan 2 20:15:57 2023 +0530
+
+    created logging.py file and basic
+
+[33mcommit 6809441c73fbeaa9705d4cb1925780ed79566f7d[m
+Author: praful1609 <pbhojane1609@gmail.com>
+Date:   Mon Jan 2 13:18:47 2023 +0530
+
+    updated
+
+[33mcommit d127b1720446a9b42af486052e96ada5b19e78f6[m
+Author: praful1609 <pbhojane1609@gmail.com>
+Date:   Mon Jan 2 10:38:30 2023 +0530
+
+    setup.py file with all required libraries
+
+[33mcommit 8a2bfdaa023f8f51261c146a8e0c1968884d7ea3[m
+Author: praful1609 <pbhojane1609@gmail.com>
+Date:   Sat Dec 31 19:20:04 2022 +0530
+
+    This is our first code commit
+
+[33mcommit 6afd27592df27173e22acdb031203b1ce67f6a05[m
+Author: Vishweswar53 <vishweswar53@gmail.com>
+Date:   Sat Oct 29 21:52:14 2022 +0530
+
+    Initial commit
