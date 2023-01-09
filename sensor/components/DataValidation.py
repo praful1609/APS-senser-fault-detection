@@ -21,7 +21,7 @@ class DataValidation:
         except Exception as e:
             raise SensorException(e, sys)
         
-    def drop_missing_value_columns(self,df:pad.DataFrame)->Optional[pd.DataFrame]:
+    def drop_missing_value_columns(self,df:pad.DataFrame,report_key_name:str)->Optional[pd.DataFrame]:
         """
         Description: This function will drop the columns which have missing value more than specific threshold
 
@@ -36,7 +36,7 @@ class DataValidation:
 
             #selecting column name which contains null_values
             drop_column_names = null_report[null_report>threshold].index
-            self.validation_error["dropped columns"]=drop_column_names
+            self.validation_error[report_key_name]=drop_column_names
             df.drop(list(drop_column_names), axis=1, inplace=True)
 
             # Return None if no column left
@@ -47,7 +47,7 @@ class DataValidation:
             raise SensorException(e,sys)
 
 
-    def is_required_column_present(self,base_df:pd.DataFrame, current_df:pd.DataFrame)->bool:
+    def is_required_column_present(self,base_df:pd.DataFrame, current_df:pd.DataFrame, report_key_name:str)->bool:
         try:
             drift_report = dict()
             base_columns = base_df.columns
@@ -59,14 +59,14 @@ class DataValidation:
                     missing_columns.append(base_column)
 
             if len(missing_columns)>0:
-                self.validation_error["missing columns"]=missing_columns
+                self.validation_error[report_key_name]=missing_columns
                 return False
             return True
         
         except Exception as e:
             raise SensorException(e, sys)
     
-    def data_drift(self, base_df:pd.DataFrame, current_df:pd.DataFrame):
+    def data_drift(self, base_df:pd.DataFrame, current_df:pd.DataFrame,report_key_name:str):
         try:
             drift_report = dict()  
             base_columns = base_df.columns
@@ -89,6 +89,8 @@ class DataValidation:
                         "same_distrubution":False
                     }
                     # Different distribution
+
+            self.validation_error[report_key_name]=drift_report
         except Exception as e:
             raise SensorException(e, sys)
 
@@ -100,18 +102,21 @@ class DataValidation:
             #base_df has na as null
             base_df.replace({na, np.NAN}, inplace=True)
 
-            base_df = self.drop_missing_value_columns(df=base_df)
+            base_df = self.drop_missing_value_columns(df=base_df, report_key_name="missing_value_within_base_dataset")
 
             train_df = pd.read_csv(self.data_ingestion_artifact.train_file_path)
             test_df = pd.read_csv(self.data_ingestion_artifact.test_file_path)
 
-            train__df = self.drop_missing_value_columns(df=train__df)
-            test__df = self.drop_missing_value_columns(df=test__df)
+            train__df = self.drop_missing_value_columns(df=train__df, report_key_name="missing_value_within_train_dataset")
+            test__df = self.drop_missing_value_columns(df=test__df, report_key_name="missing_value_within_test_dataset")
 
-            train_df_columns_status = self.is_required_column_present(base_df=base_df, current_df=train__df)
-            test_df_columns_status = self.is_required_column_present(base_df=base_df, current_df=test__df)
+            train_df_columns_status = self.is_required_column_present(base_df=base_df, current_df=train__df, report_key_name="missing_columns_within_train_dataset")
+            test_df_columns_status = self.is_required_column_present(base_df=base_df, current_df=test__df, report_key_name="missing_columns_within_test_dataset")
 
             if train_df_columns_status:
+                self.data_drift(base_df=base_df, current_df=train__df, report_key_name="data_drift_within_train_dataset")
+            if test_df_columns_status:
+                self.data_drift(base_df=base_df, current_df=test__df, report_key_name="data_drift_within_test_dataset")
 
 
 

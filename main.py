@@ -6,6 +6,7 @@ from sensor.entity.config_entity import DataIngestionConfig
 from datetime import datetime
 import sys, os
 from sensor.components import DataIngestion
+from sensor.components.DataIngestion import DataIngestion
 
 
 if __name__=="__main__":
