@@ -1,0 +1,14 @@
+[2023-01-10 12:05:12,950] 19 root INFO This line will create the folder name as artifact in current directory with proper timestamp and date
+[2023-01-10 12:05:12,950] 16 root INFO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Data Ingestion <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2023-01-10 12:05:12,950] 27 root INFO Exporting collection data as pandas dataframe
+[2023-01-10 12:05:12,950] 20 root INFO Reading data from database: aps and collection: sensor
+[2023-01-10 12:05:16,911] 22 root INFO Found columns: Index(['_id', 'class', 'aa_000', 'ab_000', 'ac_000', 'ad_000', 'ae_000',
+       'af_000', 'ag_000', 'ag_001',
+       ...
+       'ee_002', 'ee_003', 'ee_004', 'ee_005', 'ee_006', 'ee_007', 'ee_008',
+       'ee_009', 'ef_000', 'eg_000'],
+      dtype='object', length=172)
+[2023-01-10 12:05:16,912] 24 root INFO Dropping column: _id 
+[2023-01-10 12:05:17,156] 26 root INFO Row and columns in df: (36188, 171)
+[2023-01-10 12:05:17,157] 33 root INFO Save data in feature store
+[2023-01-10 12:05:17,734] 39 root INFO Create feature store folder if not available

@@ -42,17 +42,17 @@ class DataIngestionConfig:
                 so when we run this function it will create log as "artifact/'date and timestamp'/data_ingestion"
                 so this indicates the output of data_ingestion component
             """
-            self.feature_store_dir = os.path.join(self.data_ingestion_dir, "feature_store", FILE_NAME)
+            self.feature_store_file_path = os.path.join(self.data_ingestion_dir, "feature_store", FILE_NAME)
 
             """Here we are creating "feature_store" folder for location of the mongodb database
                 we are joining it will "data_ingestion_dir" along with "FILE_NAME"    
             """
-            self.train_file_name = os.path.join(self.data_ingestion_dir, "dataset", TRAIN_FILE_NAME)
+            self.train_file_path = os.path.join(self.data_ingestion_dir, "dataset", TRAIN_FILE_NAME)
             """
             Spliting data into two part train and test here in this line we are spliting data for training process
             and creating commman folder for train-test data called "dataset", along with "TRAIN_FILE_NAME"
             """
-            self.test_file_name = os.path.join(self.data_ingestion_dir, "dataset", TEST_FILE_NAME)
+            self.test_file_path = os.path.join(self.data_ingestion_dir, "dataset", TEST_FILE_NAME)
             """
             Spliting data into two part train and test here in this line we are spliting data for testing process
             and creating commman folder for train-test data called "dataset", along with "TEST_FILE_NAME"
@@ -85,10 +85,13 @@ class DataIngestionConfig:
 
 class DataValidationConfig:
     def __init__ (self, training_pipeline_config:TrainingPipelineConfig):
-        self.data_validation_dir = os.path.join(training_pipeline_config.artifact_dir, "data_validation")
-        self.report_file_path = os.path.join(self.data_validation_dir, "report.ymal")
-        self.missing_threshold = 0.7
-        self.base_file_path = os.path.join("/config/workspace/aps_failure_training_set1.csv")
+        try:
+            self.data_validation_dir = os.path.join(training_pipeline_config.artifact_dir, "data_validation")
+            self.report_file_path = os.path.join(self.data_validation_dir, "report.ymal")
+            self.missing_threshold = 0.7
+            self.base_file_path = os.path.join("/config/workspace/aps_failure_training_set1.csv")
+        except Exception as e:
+            raise SensorException(e, sys)
 
 
 

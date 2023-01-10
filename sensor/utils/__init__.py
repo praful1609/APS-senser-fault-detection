@@ -3,7 +3,7 @@ import pymongo
 from sensor.config import mongo_client
 from sensor.logger import logging
 from sensor.exception import SensorException
-import ymal 
+#import ymal 
 
 
 def get_collection_as_dataframe(database_name:str,collection_name:str)->pd.DataFrame:
@@ -28,7 +28,7 @@ def get_collection_as_dataframe(database_name:str,collection_name:str)->pd.DataF
     except Exception as e:
         raise SensorException(e, sys)
 
-def write_ymal_file(file_path, data:dict):
+"""def write_ymal_file(file_path, data:dict):
     try:
         file_dir = os.path.dirname(file_path)
 
@@ -37,4 +37,4 @@ def write_ymal_file(file_path, data:dict):
             ymal.dump(data, file_writer)
 
     except Exception as e:
-        raise SensorException(e, sys)
+        raise SensorException(e, sys)"""
