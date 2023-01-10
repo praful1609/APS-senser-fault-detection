@@ -1,0 +1,20 @@
+[2023-01-10 22:21:26,983] 19 root INFO This line will create the folder name as artifact in current directory with proper timestamp and date
+[2023-01-10 22:21:26,983] 16 root INFO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Data Ingestion <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2023-01-10 22:21:26,983] 27 root INFO Exporting collection data as pandas dataframe
+[2023-01-10 22:21:26,983] 20 root INFO Reading data from database: aps and collection: sensor
+[2023-01-10 22:21:30,907] 22 root INFO Found columns: Index(['_id', 'class', 'aa_000', 'ab_000', 'ac_000', 'ad_000', 'ae_000',
+       'af_000', 'ag_000', 'ag_001',
+       ...
+       'ee_002', 'ee_003', 'ee_004', 'ee_005', 'ee_006', 'ee_007', 'ee_008',
+       'ee_009', 'ef_000', 'eg_000'],
+      dtype='object', length=172)
+[2023-01-10 22:21:30,907] 24 root INFO Dropping column: _id 
+[2023-01-10 22:21:31,103] 26 root INFO Row and columns in df: (36188, 171)
+[2023-01-10 22:21:31,103] 33 root INFO Save data in feature store
+[2023-01-10 22:21:31,674] 39 root INFO Create feature store folder if not available
+[2023-01-10 22:21:31,675] 43 root INFO Save df to feature store folder
+[2023-01-10 22:21:33,998] 48 root INFO split dataset into train and test set
+[2023-01-10 22:21:34,498] 52 root INFO create dataset directory folder if not available
+[2023-01-10 22:21:34,499] 57 root INFO Save df to feature store folder
+[2023-01-10 22:21:36,667] 69 root INFO Data ingestion artifact: DataIngestionArtifact(feature_store_file_path='/config/workspace/artifact/01102023__222126/data_ingetion/feature_store/sensor.csv', train_file_path='/config/workspace/artifact/01102023__222126/data_ingetion/dataset/train.csv', test_file_path='/config/workspace/artifact/01102023__222126/data_ingetion/dataset/test.csv')
+[2023-01-10 22:21:37,105] 17 root INFO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Data Validation <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
