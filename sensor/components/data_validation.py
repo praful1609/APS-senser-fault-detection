@@ -9,6 +9,7 @@ from typing import Optional
 from sensor import utils
 import numpy as np
 from sensor.entity.config_entity import DataValidationConfig
+from sensor.config import TARGET_COLUMN
 
 class DataValidation:
     
@@ -123,7 +124,7 @@ class DataValidation:
             logging.info(f"Drop null values colums from test df")
             test_df = self.drop_missing_value_columns(df=test_df, report_key_name="missing_value_within_test_dataset")
 
-            exclude_columns = ["class"]
+            exclude_columns = TARGET_COLUMN
             base_df = utils.convert_columns_float(df=base_df, exclude_columns=exclude_columns)
             train_df = utils.convert_columns_float(df=train_df, exclude_columns=exclude_columns)
             test_df = utils.convert_columns_float(df=test_df, exclude_columns=exclude_columns)
