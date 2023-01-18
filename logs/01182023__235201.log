@@ -1,0 +1,5 @@
+[2023-01-18 23:52:03,243] 14 root INFO Creating model resolver object
+[2023-01-18 23:52:03,243] 16 root INFO Reading file :/config/workspace/aps_failure_training_set1.csv
+[2023-01-18 23:52:06,585] 21 root INFO Loading transformer to transform dataset
+[2023-01-18 23:52:07,875] 27 root INFO Loading model to make prediction
+[2023-01-18 23:52:07,910] 31 root INFO Target encoder to convert predicted column into categorical
