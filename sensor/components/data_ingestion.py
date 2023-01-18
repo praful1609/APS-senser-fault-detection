@@ -1,4 +1,3 @@
-
 from sensor import utils
 from sensor.entity import config_entity
 from sensor.entity import artifact_entity
@@ -19,10 +18,6 @@ class DataIngestion:
             raise SensorException(e, sys)
 
     def initiate_data_ingestion(self)->artifact_entity.DataIngestionArtifact:
-        """
-        Description = This will return DataIngestionArttifact
-        =====================================================
-        """
         try:
             logging.info(f"Exporting collection data as pandas dataframe")
             #Exporting collection data as pandas dataframe
@@ -71,3 +66,4 @@ class DataIngestion:
 
         except Exception as e:
             raise SensorException(error_message=e, error_detail=sys)
+

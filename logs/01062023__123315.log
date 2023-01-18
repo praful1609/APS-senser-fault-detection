@@ -1,3 +1,0 @@
-[2023-01-06 12:33:16,185] 19 root INFO Reading data from database: aps and collection: sensor
-[2023-01-06 12:33:16,189] 21 root INFO Found columns: Index([], dtype='object')
-[2023-01-06 12:33:16,189] 25 root INFO Row and columns in df: (0, 0)

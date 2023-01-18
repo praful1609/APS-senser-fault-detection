@@ -1,4 +1,0 @@
-[2023-01-06 12:25:35,399] 18 root INFO reading dataframe from database name  aps and collection name sensor
-[2023-01-06 12:25:35,402] 20 root INFO found columns Index([], dtype='object')
-[2023-01-06 12:25:35,403] 23 root INFO droping column '_id' 
-[2023-01-06 12:25:35,403] 26 root INFO Rows and columns in df: (0, 0)

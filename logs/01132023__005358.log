@@ -1,4 +1,0 @@
-[2023-01-13 00:54:00,505] 22 root INFO This line will create the folder name as artifact in current directory with proper timestamp and date
-[2023-01-13 00:54:00,505] 16 root INFO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Data Ingestion <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-[2023-01-13 00:54:00,505] 27 root INFO Exporting collection data as pandas dataframe
-[2023-01-13 00:54:00,505] 23 root INFO Reading data from database: aps and collection: sensor
